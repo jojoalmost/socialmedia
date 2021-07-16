@@ -15,7 +15,7 @@ const UserList = () => {
     return (
         <div className={styles.container}>
             {users.map(user => (
-                <UserCard user={user}/>
+                <UserCard key={user.id} user={user}/>
             ))}
         </div>
     )
