@@ -14,7 +14,7 @@ const PostList = ({userId}) => {
 
     return (
         <>
-            <h3>Post</h3>
+            <h3>Posts</h3>
             <div>
                 {posts.map(post => (
                     <PostCard {...post}/>
