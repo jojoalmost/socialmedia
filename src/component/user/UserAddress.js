@@ -4,11 +4,13 @@ const UserAddress = ({city, geo: {lat, lng}, street, suite, zipcode}) => {
     return (
         <div>
             <h3>Address</h3>
-            <div>{city}</div>
-            <div>{lat},{lng}</div>
-            <div>{street}</div>
-            <div>{suite}</div>
-            <div>{zipcode}</div>
+            <div>
+                <a href={`https://maps.google.com/?q=${lat},${lng}`} target="_blank">
+                    <div>{city}, {street}</div>
+                    <div>{suite}</div>
+                    <div>{zipcode}</div>
+                </a>
+            </div>
         </div>
     )
 }

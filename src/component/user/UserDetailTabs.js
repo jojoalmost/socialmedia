@@ -8,10 +8,10 @@ const UserDetailTabs = ({userId, children}) => {
             <div className={styles.tabMenuContainer}>
                 <ul>
                     <li>
-                        <NavLink to={`/user/${userId}`}>Post</NavLink>
+                        <NavLink exact  to={`/user/${userId}`} activeClassName={styles.activeTab}>Post</NavLink>
                     </li>
                     <li>
-                        <NavLink to={`/user/${userId}/albums`}>Albums</NavLink>
+                        <NavLink exact  to={`/user/${userId}/albums`} activeClassName={styles.activeTab}>Albums</NavLink>
                     </li>
                 </ul>
             </div>

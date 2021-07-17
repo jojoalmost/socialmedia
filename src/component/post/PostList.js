@@ -22,7 +22,7 @@ const PostList = ({userId}) => {
         <div className={styles.container}>
             <h3>Posts</h3>
             <div>
-                <PostForm callback={handleCallbackSubmitted}/>
+                <PostForm userId={userId} callback={handleCallbackSubmitted}/>
                 {posts.map(post => (
                     <PostCard key={post.id} {...post}/>
                 ))}

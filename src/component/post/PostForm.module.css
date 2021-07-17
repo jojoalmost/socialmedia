@@ -1,0 +1,14 @@
+.container .formGroup {
+    display: flex;
+}
+
+.container input, textarea {
+    width: 100%;
+    display: block;
+    line-height: 1.5;
+    border: 1px solid #EEEEEE;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    margin-bottom: 8px;
+}

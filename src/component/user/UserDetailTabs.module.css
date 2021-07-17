@@ -20,8 +20,14 @@
 .tabMenuContainer li a {
     text-decoration: none;
     color: #000000;
+    padding: 14px;
 }
 
 .tabContent {
     display: flex;
+}
+
+.activeTab {
+    color: #0ab1b1 !important;
+    border-bottom: 4px solid #0ab1b1;
 }

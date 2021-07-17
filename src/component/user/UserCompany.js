@@ -4,9 +4,9 @@ const UserCompany = ({bs, catchPhrase, name}) => {
     return (
         <div>
             <h3>Company</h3>
+            <div>{name}</div>
             <div>{bs}</div>
             <div>{catchPhrase}</div>
-            <div>{name}</div>
         </div>
     )
 }

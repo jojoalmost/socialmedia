@@ -26,8 +26,8 @@ const UserDetail = () => {
     return (
         <div>
             <div className={styles.mainDetail}>
-                <h1>{name}</h1>
-                <div>{username}</div>
+                <h2 className={styles.title}>{name}</h2>
+                <div>@{username}</div>
             </div>
 
             <UserDetailTabs userId={userId}>

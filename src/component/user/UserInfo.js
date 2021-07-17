@@ -7,9 +7,18 @@ const UserInfo = ({email, phone, website, address, company}) => {
     return (
         <div className={styles.container}>
             <h3>Detail</h3>
-            <div><a href={email}>{email}</a></div>
-            <div><a href={phone}>{phone}</a></div>
-            <div><a href={website}>{website}</a></div>
+            <div>
+                <div>Email</div>
+                <div><a href={`mailto:${email}`}>{email}</a></div>
+            </div>
+            <div>
+                <div>Phone</div>
+                <a href={`tel:${phone}`}>{phone}</a>
+            </div>
+            <div>
+                <div>Website</div>
+                <a href={`https://${website}`}>{website}</a>
+            </div>
 
             <UserAddress {...address}/>
             <UserCompany {...company}/>
