@@ -6,7 +6,7 @@ const UserCard = ({user: {id, email, name, username, phone, website, address, co
     let history = useHistory();
 
     const handleClickCard = () => {
-        history.push(`/users/${id}`)
+        history.push(`/user/${id}`)
     }
 
     return (

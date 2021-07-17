@@ -6,7 +6,6 @@ import AlbumList from "../album/AlbumList";
 
 const UserDetail = () => {
     const [user, setUser] = useState({});
-    const [post, setPost] = useState([]);
     const {id: userId} = useParams();
 
     useEffect(() => {
