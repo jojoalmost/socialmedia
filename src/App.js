@@ -1,14 +1,14 @@
 import Routes from "./Routes";
 import Header from "./component/layout/Header";
-import Content from "./component/layout/Content";
+import MainContent from "./component/layout/MainContent";
 
 function App() {
     return (
         <div className="App">
             <Header/>
-            <Content>
+            <MainContent>
                 <Routes/>
-            </Content>
+            </MainContent>
         </div>
     );
 }

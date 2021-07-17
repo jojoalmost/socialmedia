@@ -1,6 +1,9 @@
 .container {
     background: #FFFFFF;
     box-shadow: 0 1px 4px #888888;
+    position: sticky;
+    top: 0;
+    margin-bottom: 20px;
 }
 
 .container .header {

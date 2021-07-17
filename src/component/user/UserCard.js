@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './UserCard.module.css'
 import {useHistory} from "react-router";
 
-const UserCard = ({user: {id, email, name, username, phone, website, address, company}, user}) => {
+const UserCard = ({id, email, name, username, phone, website, address, company}) => {
     const history = useHistory();
 
     const handleClickCard = () => {
@@ -12,8 +12,8 @@ const UserCard = ({user: {id, email, name, username, phone, website, address, co
     return (
         <div className={styles.container} onClick={handleClickCard}>
             <div>{name}</div>
-            <div>{username}</div>
+            <div>@{username}</div>
         </div>
     )
 }
-export default UserCard
+export default UserCard;

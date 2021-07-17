@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router";
 import api from "../../utils/api";
-import PostList from "../post/PostList";
-import AlbumList from "../album/AlbumList";
-import {NavLink} from "react-router-dom";
 import UserDetailTabs from "./UserDetailTabs";
+import styles from "./UserDetail.module.css"
 
 const UserDetail = () => {
     const [user, setUser] = useState({});
@@ -20,7 +18,7 @@ const UserDetail = () => {
     const {name, username, email, phone, website} = user;
 
     return (
-        <>
+        <div className={styles.container}>
             <div>
                 <div>{name}</div>
                 <div>{username}</div>
@@ -29,8 +27,10 @@ const UserDetail = () => {
                 <div>{website}</div>
             </div>
 
-            <UserDetailTabs userId={userId}/>
-        </>
+            <div>
+                <UserDetailTabs userId={userId}/>
+            </div>
+        </div>
     )
 }
-export default UserDetail
+export default UserDetail;
