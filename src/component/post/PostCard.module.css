@@ -4,3 +4,7 @@
     border-radius: 4px;
     margin-bottom: 8px;
 }
+
+.card:hover {
+    cursor: pointer;
+}

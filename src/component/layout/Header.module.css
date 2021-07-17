@@ -1,0 +1,14 @@
+.container {
+    background: #FFFFFF;
+    box-shadow: 0 1px 4px #888888;
+}
+
+.container .header {
+    width: 1024px;
+    margin: auto;
+    padding: 12px;
+}
+
+.container .header .logo {
+    height: 42px;
+}

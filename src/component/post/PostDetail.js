@@ -5,14 +5,14 @@ import CommentList from "./comment/CommentList";
 
 const PostDetail = () => {
     const [post, setPost] = useState({});
-    const {id: postId} = useParams();
+    const {postId} = useParams();
 
     useEffect(() => {
         api.get(`posts/${postId}`).then(res => {
             const {data} = res;
             setPost(data);
         })
-    }, [])
+    }, [postId])
 
     const {title, body} = post;
     return (

@@ -3,7 +3,7 @@ import styles from './UserCard.module.css'
 import {useHistory} from "react-router";
 
 const UserCard = ({user: {id, email, name, username, phone, website, address, company}, user}) => {
-    let history = useHistory();
+    const history = useHistory();
 
     const handleClickCard = () => {
         history.push(`/user/${id}`)

@@ -3,10 +3,12 @@ import {useParams} from "react-router";
 import api from "../../utils/api";
 import PostList from "../post/PostList";
 import AlbumList from "../album/AlbumList";
+import {NavLink} from "react-router-dom";
+import UserDetailTabs from "./UserDetailTabs";
 
 const UserDetail = () => {
     const [user, setUser] = useState({});
-    const {id: userId} = useParams();
+    const {userId} = useParams();
 
     useEffect(() => {
         api.get(`users/${userId}`).then(res => {
@@ -16,6 +18,7 @@ const UserDetail = () => {
     }, [userId])
 
     const {name, username, email, phone, website} = user;
+
     return (
         <>
             <div>
@@ -26,8 +29,7 @@ const UserDetail = () => {
                 <div>{website}</div>
             </div>
 
-            <PostList userId={userId}/>
-            <AlbumList userId={userId}/>
+            <UserDetailTabs userId={userId}/>
         </>
     )
 }
