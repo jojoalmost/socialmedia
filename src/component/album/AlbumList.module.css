@@ -1,5 +1,16 @@
 .container {
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid #EEEEEE;
+    padding: 12px;
+    flex: 1;
+}
+
+.cardContainer {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 4px
+    grid-gap: 12px;
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*flex-direction: row;*/
 }

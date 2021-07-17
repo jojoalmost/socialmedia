@@ -1,14 +1,11 @@
 import React from 'react';
-import PostList from "../post/PostList";
-import AlbumList from "../album/AlbumList";
+import styles from './UserDetailTabs.module.css'
 import {NavLink} from "react-router-dom";
-import {useRouteMatch} from "react-router";
 
-const UserDetailTabs = ({userId}) => {
-    const match = useRouteMatch("/user/:userId");
+const UserDetailTabs = ({userId, children}) => {
     return (
         <>
-            <div>
+            <div className={styles.tabMenuContainer}>
                 <ul>
                     <li>
                         <NavLink to={`/user/${userId}`}>Post</NavLink>
@@ -19,14 +16,10 @@ const UserDetailTabs = ({userId}) => {
                 </ul>
             </div>
 
-            <div>
-                {match.isExact ? (
-                    <PostList userId={userId}/>
-                ) : (
-                    <AlbumList userId={userId}/>
-                )}
+            <div className={styles.tabContent}>
+                {children}
             </div>
         </>
     )
 }
-export default UserDetailTabs
+export default UserDetailTabs;

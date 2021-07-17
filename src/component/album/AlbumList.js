@@ -12,14 +12,14 @@ const AlbumList = ({userId}) => {
         })
     }, [userId])
     return (
-        <>
+        <div className={styles.container}>
             <h3>Albums</h3>
-            <div className={styles.container}>
+            <div className={styles.cardContainer}>
                 {albums.map(album => (
                     <AlbumCard {...album}/>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 export default AlbumList

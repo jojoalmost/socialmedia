@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import api from "../../utils/api";
 import {useParams} from "react-router";
 import CommentList from "./comment/CommentList";
+import styles from "./PostDetail.module.css";
 
 const PostDetail = () => {
     const [post, setPost] = useState({});
@@ -16,8 +17,8 @@ const PostDetail = () => {
 
     const {title, body} = post;
     return (
-        <div>
-            <div>
+        <div className={styles.container}>
+            <div className={styles.postContainer}>
                 <h3>{title}</h3>
                 <p>{body}</p>
             </div>

@@ -4,6 +4,7 @@
     cursor: pointer;
     margin-bottom: 8px;
 }
-/*.container:hover{*/
-/*    background: #F8F8F8;*/
-/*}*/
+
+.name {
+    font-weight: bold;
+}

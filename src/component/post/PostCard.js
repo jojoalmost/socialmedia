@@ -11,8 +11,10 @@ const PostCard = ({id, body, title, userId}) => {
 
     return (
         <div className={styles.card} onClick={handleClickCard}>
-            <h5>{title}</h5>
-            <p>{body}</p>
+            <h4>{title}</h4>
+            <div className={styles.content}>
+                <p>{body}</p>
+            </div>
         </div>
     );
 }

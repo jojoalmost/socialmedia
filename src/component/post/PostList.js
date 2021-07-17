@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import api from "../../utils/api";
 import PostCard from "./PostCard";
+import styles from "./PostList.module.css"
 
 const PostList = ({userId}) => {
     const [posts, setPosts] = useState([]);
@@ -13,14 +14,14 @@ const PostList = ({userId}) => {
     }, [userId])
 
     return (
-        <>
+        <div className={styles.container}>
             <h3>Posts</h3>
             <div>
                 {posts.map(post => (
                     <PostCard {...post}/>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 export default PostList

@@ -1,0 +1,27 @@
+.tabMenuContainer {
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid #EEEEEE;
+    margin-bottom: 12px;
+}
+
+.tabMenuContainer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tabMenuContainer li {
+    display: inline-block;
+    font-weight: bold;
+    padding: 16px;
+}
+
+.tabMenuContainer li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.tabContent {
+    display: flex;
+}

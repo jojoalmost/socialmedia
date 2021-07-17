@@ -1,11 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router";
 import api from "../../utils/api";
-import UserDetailTabs from "./UserDetailTabs";
+
 import styles from "./UserDetail.module.css"
 
+import UserDetailTabs from "./UserDetailTabs";
+
+import {initStateUserDetails} from "../../utils/defaultState";
+import UserDetailTabContent from "./UserDetailTabContent";
+import UserInfo from "./UserInfo";
+
 const UserDetail = () => {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(initStateUserDetails);
     const {userId} = useParams();
 
     useEffect(() => {
@@ -15,21 +21,19 @@ const UserDetail = () => {
         })
     }, [userId])
 
-    const {name, username, email, phone, website} = user;
+    const {name, username} = user;
 
     return (
-        <div className={styles.container}>
-            <div>
-                <div>{name}</div>
+        <div>
+            <div className={styles.mainDetail}>
+                <h1>{name}</h1>
                 <div>{username}</div>
-                <div>{email}</div>
-                <div>{phone}</div>
-                <div>{website}</div>
             </div>
 
-            <div>
-                <UserDetailTabs userId={userId}/>
-            </div>
+            <UserDetailTabs userId={userId}>
+                <UserInfo {...user} />
+                <UserDetailTabContent userId={userId}/>
+            </UserDetailTabs>
         </div>
     )
 }

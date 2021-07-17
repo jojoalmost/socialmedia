@@ -1,10 +1,12 @@
-.card {
-    border: 1px solid #000000;
-    padding: 8px;
-    border-radius: 4px;
-    margin-bottom: 8px;
+.card:not(:last-child) {
+    border-bottom: 1px solid #EEEEEE;
 }
 
 .card:hover {
     cursor: pointer;
+}
+
+.content p {
+    word-break: break-word;
+    text-align: justify;
 }
