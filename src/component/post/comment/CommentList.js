@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import api from "../../../utils/api";
 import Comment from "./Comment";
+import CommentForm from "./CommentForm";
 
 const CommentList = ({postId}) => {
     const [comments, setComments] = useState([]);
@@ -10,10 +11,15 @@ const CommentList = ({postId}) => {
             const {data} = res;
             setComments(data);
         })
-    }, [postId])
+    }, [postId]);
+
+    const handleCallbackSubmitted = (data) => {
+        setComments([...comments, data]);
+    }
 
     return (
         <div>
+            <CommentForm callback={handleCallbackSubmitted}/>
             {comments.map((comment) => <Comment {...comment}/>)}
         </div>
     )

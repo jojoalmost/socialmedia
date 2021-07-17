@@ -1,0 +1,12 @@
+.container {
+    margin: 8px;
+}
+
+.title {
+    position: absolute;
+    word-break: break-word;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+    text-align: center;
+}

@@ -16,7 +16,7 @@ const AlbumList = ({userId}) => {
             <h3>Albums</h3>
             <div className={styles.cardContainer}>
                 {albums.map(album => (
-                    <AlbumCard {...album}/>
+                    <AlbumCard key={album.id} {...album}/>
                 ))}
             </div>
         </div>

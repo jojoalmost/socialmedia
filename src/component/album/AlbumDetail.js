@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import api from "../../utils/api";
 import {useParams} from "react-router";
-import PhotoList from "./photo/PhotoList";
+import PhotoCard from "./photo/PhotoCard";
+import styles from "./AlbumDetail.module.css"
 
 const AlbumDetail = () => {
     const [photos, setPhotos] = useState([]);
@@ -16,8 +17,11 @@ const AlbumDetail = () => {
     }, [albumId])
 
     return (
-        <div>
-            {photos.map(photo => <PhotoList {...photo} />)}
+        <div className={styles.container}>
+            <h3>Photos</h3>
+            <div className={styles.photosContainer}>
+                {photos.map(photo => <PhotoCard key={photo.id} {...photo} />)}
+            </div>
         </div>
     )
 }

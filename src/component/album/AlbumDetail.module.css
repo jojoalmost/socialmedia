@@ -3,9 +3,10 @@
     border-radius: 6px;
     border: 1px solid #EEEEEE;
     padding: 12px;
-    flex: 1;
 }
 
-.postContainer {
-    border-bottom: 1px solid #EEEEEE;
+.photosContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }

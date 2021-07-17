@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import api from "../../utils/api";
 import PostCard from "./PostCard";
 import styles from "./PostList.module.css"
+import PostForm from "./PostForm";
 
 const PostList = ({userId}) => {
     const [posts, setPosts] = useState([]);
@@ -11,14 +12,19 @@ const PostList = ({userId}) => {
             const {data} = res;
             setPosts(data);
         })
-    }, [userId])
+    }, [userId]);
+
+    const handleCallbackSubmitted = (data) => {
+        setPosts([data, ...posts]);
+    }
 
     return (
         <div className={styles.container}>
             <h3>Posts</h3>
             <div>
+                <PostForm callback={handleCallbackSubmitted}/>
                 {posts.map(post => (
-                    <PostCard {...post}/>
+                    <PostCard key={post.id} {...post}/>
                 ))}
             </div>
         </div>
