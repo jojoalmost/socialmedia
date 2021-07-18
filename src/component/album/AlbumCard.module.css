@@ -2,13 +2,12 @@
     border: 1px solid #888888;
     border-radius: 8px;
     padding: 8px;
-    margin-bottom: 10px;
     display: flex;
     align-items: center;
     word-break: break-word;
     text-align: center;
-    width: 150px;
     height: 150px;
+    justify-content: center;
 }
 
 .card:hover {

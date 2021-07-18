@@ -22,10 +22,7 @@ const Routes = () => {
                     <Route exact path="/users">
                         <Users/>
                     </Route>
-                    <Route exact path="/user/:userId">
-                        <UserDetail/>
-                    </Route>
-                    <Route exact path="/user/:userId/albums">
+                    <Route path="/user/:userId">
                         <UserDetail/>
                     </Route>
                     <Route exact path="/album/:albumId">

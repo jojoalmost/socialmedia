@@ -30,7 +30,7 @@ const AlbumDetail = () => {
 
     return (
         <div className={styles.container}>
-            <h3>Photos</h3>
+            <h3>Photos ({(photos.length)})</h3>
             <div className={styles.photosContainer}>
                 {photos.map(photo =>
                     <PhotoCard key={photo.id}

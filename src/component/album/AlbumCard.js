@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './AlbumCard.module.css'
 import {useHistory} from "react-router";
 
-const AlbumCard = ({userId, id, title}) => {
+const AlbumCard = ({id, title}) => {
     const history = useHistory();
 
     const handleClickCard = () => {

@@ -14,7 +14,7 @@ const UserList = () => {
     }, [])
     return (
         <div className={styles.container}>
-            <h2>Users</h2>
+            <h2>Users ({users.length})</h2>
             <div>
                 {users.map(user => (
                     <UserCard key={user.id} {...user}/>

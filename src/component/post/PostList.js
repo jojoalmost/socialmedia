@@ -37,15 +37,15 @@ const PostList = ({userId}) => {
 
     return (
         <div className={styles.container}>
-            <h3>Posts</h3>
+            <h3>Posts ({posts.length})</h3>
             <div>
                 <PostForm
                     userId={userId}
                     callbackOnCreate={handleCallbackOnCreate}
                 />
-                {posts.map(post => (
+                {posts.map((post,index) => (
                     <PostCard
-                        key={post.id}
+                        key={`${post.id}-${index}`}
                         {...post}
                         callbackOnUpdate={handleCallbackOnUpdate}
                         callbackOnDelete={handleCallbackOnDelete}
