@@ -1,4 +1,4 @@
-import UserList from "../component/user/UserList";
+import UserList from "../component/user/UserList/UserList";
 
 const Users = () => {
     return <UserList />

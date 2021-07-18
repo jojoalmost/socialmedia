@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import api from "../../utils/api";
-import UserCard from "./UserCard";
+import api from "../../../utils/api";
+import UserCard from "../UserCard";
 import styles from "./UserList.module.css"
 
 const UserList = () => {
