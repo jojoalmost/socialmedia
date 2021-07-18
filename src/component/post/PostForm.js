@@ -1,10 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import api from "../../utils/api";
-import styles from "./PostForm.module.css"
+import styles from "./PostForm.module.css";
 
-const PostForm = ({userId, callback}) => {
+const PostForm = ({userId, callback, form, isEdit = false}) => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
+
+    useEffect(() => {
+        if (isEdit) {
+            setTitle(form.title);
+            setBody(form.body);
+        }
+    }, [isEdit]);
 
     const handleSubmit = () => {
         if (title.trim() === '' || body.trim() === '') return false;
@@ -42,7 +49,7 @@ const PostForm = ({userId, callback}) => {
             <div className={styles.formGroup}>
                 <textarea placeholder="Write a post here..." onChange={handleOnChangeBody} value={body}/>
             </div>
-            <button type="button" onClick={handleSubmit}>Post</button>
+            {/*<button className={styles.buttonSubmit} type="button" onClick={handleSubmit}>Post</button>*/}
         </div>
     )
 }

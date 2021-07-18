@@ -12,3 +12,22 @@
     border-radius: .25rem;
     margin-bottom: 8px;
 }
+
+.buttonDelete, .buttonSubmit {
+    outline: 0;
+    border: 0 solid transparent;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.buttonDelete {
+    background: #dc1641;
+    color: #FFFFFF;
+}
+
+.buttonSubmit {
+    background: #04a4a4;
+    color: #FFFFFF;
+    outline: 0;
+}

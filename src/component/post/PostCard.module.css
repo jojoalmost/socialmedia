@@ -10,3 +10,11 @@
     word-break: break-word;
     text-align: justify;
 }
+
+.containerFormEdit {
+    margin: 12px 0;
+}
+
+.ActionButtonContainer {
+    margin-bottom: 20px;
+}
