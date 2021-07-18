@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import api from "../../utils/api";
+import api from "../../../utils/api";
 import {useParams} from "react-router";
-import CommentList from "./comment/CommentList";
+import CommentList from "../Comment/CommentList/CommentList";
 import styles from "./PostDetail.module.css";
 
 const PostDetail = () => {

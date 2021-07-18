@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import api from "../../../utils/api";
-import Comment from "./Comment";
-import CommentForm from "./CommentForm";
+import api from "../../../../utils/api";
+import Comment from "../Comment";
+import CommentForm from "../CommentForm/CommentForm";
 import styles from "./CommentList.module.css"
 
 const CommentList = ({postId, userId}) => {

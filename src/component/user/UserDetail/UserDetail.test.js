@@ -2,7 +2,7 @@ import {render, screen, waitFor} from '@testing-library/react';
 import api from "../../../utils/api";
 import UserDetail from "./UserDetail";
 import {useParams} from "react-router";
-import {BrowserRouter as Router,} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router";
 
 const mockData = {
     "id": 1,
@@ -30,6 +30,9 @@ const mockData = {
 
 jest.mock('../../../utils/api');
 jest.mock("react-router");
+jest.mock('../UserDetailTabs/UserDetailTabs', () => {
+    return () => <div></div>
+})
 test('render user detail', async () => {
     useParams.mockReturnValue({userId: 1});
     api.get.mockResolvedValue({data: mockData});

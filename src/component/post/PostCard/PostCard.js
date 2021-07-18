@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PostCard.module.css'
 import {useHistory} from "react-router";
-import PostForm from "./PostForm";
+import PostForm from "../PostForm/PostForm";
 
 const PostCard = ({id: postId, body, title, userId, ...rest}) => {
     const history = useHistory();

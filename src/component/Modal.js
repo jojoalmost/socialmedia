@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Modal.module.css'
-import buttonStyle from './post/PostForm.module.css'
+import buttonStyle from './post/PostForm/PostForm.module.css'
 
 const Modal = ({show, children, title, onClose}) => {
     if (!show) return null;

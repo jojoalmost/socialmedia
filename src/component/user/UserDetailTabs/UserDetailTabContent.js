@@ -1,5 +1,5 @@
 import React from 'react';
-import PostList from "../../post/PostList";
+import PostList from "../../post/PostList/PostList";
 import AlbumList from "../../album/AlbumList/AlbumList";
 import {
     Switch, Route,

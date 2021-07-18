@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import api from "../../../utils/api";
 import {useParams} from "react-router";
-import PhotoCard from "../photo/PhotoCard";
+import PhotoCard from "../PhotoCard/PhotoCard";
 import styles from "./AlbumDetail.module.css"
 import ModalPhoto from "../../ModalPhoto";
 import {useDispatch} from "react-redux";

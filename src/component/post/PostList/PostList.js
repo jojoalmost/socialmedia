@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import api from "../../utils/api";
-import PostCard from "./PostCard";
+import api from "../../../utils/api";
+import PostCard from "../PostCard/PostCard";
 import styles from "./PostList.module.css"
-import PostForm from "./PostForm";
+import PostForm from "../PostForm/PostForm";
 
 const PostList = ({userId}) => {
     const [posts, setPosts] = useState([]);

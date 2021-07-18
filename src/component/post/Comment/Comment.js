@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentForm from "./CommentForm";
+import CommentForm from "./CommentForm/CommentForm";
 import styles from "./Comment.module.css"
 
 const Comment = ({id, postId, name, email, body, ...rest}) => {

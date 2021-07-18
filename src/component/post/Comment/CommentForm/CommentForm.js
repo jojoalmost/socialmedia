@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import api from "../../../utils/api";
-import styles from "../PostForm.module.css";
+import api from "../../../../utils/api";
+import styles from "../../PostForm/PostForm.module.css";
 
 const CommentForm = ({
                          commentId,

@@ -30,15 +30,11 @@ const mockData = [
 ];
 
 const mockStores = {
-    photos: {
-        modal: {
-            albumId: 1,
-            id: 1,
-            title: "accusamus beatae ad facilis cum similique qui sunt",
-            url: "https://via.placeholder.com/600/92c952",
-            thumbnailUrl: "https://via.placeholder.com/150/92c952"
-        }
-    }
+    albumId: 1,
+    id: 1,
+    title: "accusamus beatae ad facilis cum similique qui sunt",
+    url: "https://via.placeholder.com/600/92c952",
+    thumbnailUrl: "https://via.placeholder.com/150/92c952"
 }
 jest.mock('react-router');
 jest.mock('../../../utils/api');
@@ -46,7 +42,10 @@ jest.mock("react-redux");
 test('render album detail', async () => {
     useParams.mockReturnValue({albumId: 1});
     useDispatch.mockReturnValue(mockStores);
-    useSelector.mockImplementation(getModalData);
+    useSelector.mockReturnValue({
+        title: "accusamus beatae ad facilis cum similique qui sunt",
+        url: "https://via.placeholder.com/600/92c952",
+    });
     api.get.mockResolvedValue({data: mockData});
     render(<AlbumDetail/>);
     await waitFor(() => screen.getByText(/officia porro iure quia iusto qui ipsa ut modi/i))
