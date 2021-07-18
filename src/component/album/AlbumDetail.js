@@ -5,13 +5,16 @@ import PhotoCard from "./photo/PhotoCard";
 import styles from "./AlbumDetail.module.css"
 import Modal from "../Modal";
 import ModalPhoto from "../ModalPhoto";
+import {useDispatch} from "react-redux";
+import {setModalPhoto} from "../../stores/photos/actions";
 
 const AlbumDetail = () => {
     const [photos, setPhotos] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
-    const [selectedPhoto, setSelectedPhoto] = useState({});
     const {albumId} = useParams();
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         api.get(`albums/${albumId}/photos`).then(res => {
@@ -22,7 +25,7 @@ const AlbumDetail = () => {
 
     const handleShowPhoto = (photoId) => {
         const findPhoto = photos.find(({id}) => id === photoId);
-        setSelectedPhoto(findPhoto);
+        dispatch(setModalPhoto(findPhoto));
         setShowModal(true);
     }
 
@@ -37,12 +40,12 @@ const AlbumDetail = () => {
                     />
                 )}
             </div>
+
             <ModalPhoto
                 show={showModal}
-                title={selectedPhoto.title}
-                imageUrl={selectedPhoto.url}
                 onClose={() => setShowModal(!showModal)}
             />
+
         </div>
     )
 }
