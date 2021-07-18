@@ -7,7 +7,7 @@ const ModalPhoto = ({show, onClose}) => {
     const {url, title} = useSelector(geModalData)
     return (
         <Modal show={show} title={title} onClose={onClose}>
-            <img src={url}/>
+            <img src={url} alt={title}/>
         </Modal>
     )
 }

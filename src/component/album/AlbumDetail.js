@@ -3,7 +3,6 @@ import api from "../../utils/api";
 import {useParams} from "react-router";
 import PhotoCard from "./photo/PhotoCard";
 import styles from "./AlbumDetail.module.css"
-import Modal from "../Modal";
 import ModalPhoto from "../ModalPhoto";
 import {useDispatch} from "react-redux";
 import {setModalPhoto} from "../../stores/photos/actions";

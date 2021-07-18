@@ -21,7 +21,7 @@ const PostForm = ({
             setTitle(form.title);
             setBody(form.body);
         }
-    }, [isEdit]);
+    }, [isEdit, form]);
 
     const onSubmittedForm = async (type = 'create') => {
         try {

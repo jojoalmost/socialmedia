@@ -5,7 +5,7 @@ const UserAddress = ({city, geo: {lat, lng}, street, suite, zipcode}) => {
         <div>
             <h3>Address</h3>
             <div>
-                <a href={`https://maps.google.com/?q=${lat},${lng}`} target="_blank">
+                <a href={`https://maps.google.com/?q=${lat},${lng}`} target="_blank" rel="noreferrer">
                     <div>{city}, {street}</div>
                     <div>{suite}</div>
                     <div>{zipcode}</div>

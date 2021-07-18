@@ -19,7 +19,7 @@ const CommentForm = ({
         if (isEdit) {
             setComment(currentComment);
         }
-    }, [isEdit]);
+    }, [isEdit, currentComment]);
 
     const onSubmittedForm = async (type = 'create') => {
         try {

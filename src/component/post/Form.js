@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from "./PostForm.module.css";
 
 const Form = ({title = '', body = '', onChangeInput}) => {
