@@ -1,10 +1,7 @@
 import React from 'react';
+import NoMatch404 from "../component/NoMatch";
 
 const NoMatch = () => {
-    return (
-        <>
-            <h1>not found</h1>
-        </>
-    )
+    return <NoMatch404 />
 }
 export default NoMatch

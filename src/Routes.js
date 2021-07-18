@@ -31,10 +31,10 @@ const Routes = () => {
                     <Route exact path="/album/:albumId">
                         <AlbumDetail/>
                     </Route>
-                    <Route path="/post/:postId">
+                    <Route exact path="/post/:postId">
                         <PostDetail/>
                     </Route>
-                    <Route path="/">
+                    <Route exact path="/">
                         <Redirect to="/users"/>
                     </Route>
                     <Route path="*">
