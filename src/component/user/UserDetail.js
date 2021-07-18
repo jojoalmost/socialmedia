@@ -32,7 +32,7 @@ const UserDetail = () => {
 
             <UserDetailTabs userId={userId}>
                 <UserInfo {...user} />
-                <UserDetailTabContent userId={userId}/>
+                <UserDetailTabContent userId={Number(userId)}/>
             </UserDetailTabs>
         </div>
     )
