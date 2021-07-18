@@ -1,13 +1,11 @@
 import React from 'react';
 import styles from './PhotoCard.module.css'
 
-const PhotoCard = ({id, albumId, title, url, thumbnailUrl}) => {
+const PhotoCard = ({id, title, thumbnailUrl, onShowPhoto}) => {
     return (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={() => onShowPhoto(id)}>
             <h5 className={styles.title}>{title}</h5>
-            <a href={url}>
-                <img src={thumbnailUrl} alt=""/>
-            </a>
+            <img src={thumbnailUrl} alt=""/>
         </div>
     )
 }

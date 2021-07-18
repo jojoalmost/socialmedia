@@ -121,6 +121,11 @@ const PostForm = ({
                     <button className={styles.buttonSubmit} type="button" onClick={handleClickEdit}>
                         {isEdit ? 'Save' : 'Edit'}
                     </button>
+                    {isEdit && (
+                        <button className={styles.buttonSubmit} type="button" onClick={() => setIsEdit(!isEdit)}>
+                            Cancel
+                        </button>
+                    )}
                     <button className={styles.buttonDelete} type="button" onClick={handleClickDelete}>Delete
                     </button>
                 </div>
