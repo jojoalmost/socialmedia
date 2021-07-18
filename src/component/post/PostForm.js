@@ -3,7 +3,15 @@ import api from "../../utils/api";
 import styles from "./PostForm.module.css";
 import stylesButton from "./PostForm.module.css";
 
-const PostForm = ({postId, userId, callback, form, children}) => {
+const PostForm = ({
+                      postId,
+                      userId,
+                      callbackOnCreate,
+                      callbackOnUpdate,
+                      callbackOnDelete,
+                      form,
+                      children
+                  }) => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [isEdit, setIsEdit] = useState(false);
@@ -15,47 +23,66 @@ const PostForm = ({postId, userId, callback, form, children}) => {
         }
     }, [isEdit]);
 
-    const handleClickPost = () => {
-        if (title.trim() === '' || body.trim() === '') return false;
-
-        const payload = {
-            title,
-            body,
-            userId,
-        };
-
-        return api.post('posts', payload).then(res => {
-            const {data} = res;
-            callback(data);
-            setTitle('');
-            setBody('');
-        });
-    }
-
-    const handleClickEdit = (e) => {
-        e.stopPropagation();
-        if (isEdit) {
-            if (!window.confirm("Do you really want update this post?")) return false;
-            if (title.trim() === '' || body.trim() === '') return false;
+    const onSubmittedForm = async (type = 'create') => {
+        try {
+            if (title.trim() === '' || body.trim() === '') throw new Error('fill all input');
             const payload = {
-                id: postId,
                 title,
                 body,
                 userId,
             };
-            api.put(`posts/${postId}`, payload).then(res => {
-                console.log(res);
-            });
+            let request;
+            switch (type) {
+                case 'edit':
+                    request = await api.put(`posts/${postId}`, payload)
+                    break;
+                case "create":
+                default:
+                    const updatePayload = {id: postId, ...payload};
+                    request = await api.post('posts', updatePayload);
+                    break
+            }
+            return request;
+        } catch (e) {
+            alert(e.message);
+            throw e;
         }
-        setIsEdit(!isEdit);
     }
 
-    const handleClickDelete = (e) => {
-        e.stopPropagation();
-        if (!window.confirm("Do you really want delete this post?")) return;
-        api.delete(`posts/${postId}`).then(res => {
-            console.log(res);
-        });
+    const handleClickPost = async (e) => {
+        try {
+            const request = await onSubmittedForm();
+            callbackOnCreate(request);
+            setTitle('');
+            setBody('');
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
+    const handleClickEdit = async (e) => {
+        try {
+            if (isEdit) {
+                if (!window.confirm("Do you really want update this post?")) return false;
+                const request = await onSubmittedForm('edit');
+                callbackOnUpdate(request);
+                setTitle('');
+                setBody('');
+            }
+            setIsEdit(!isEdit);
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
+    const handleClickDelete = async (e) => {
+        try {
+            if (!window.confirm("Do you really want delete this post?")) return false;
+            await api.delete(`posts/${postId}`);
+            callbackOnDelete(postId);
+        } catch (e) {
+            console.error(e)
+        }
     }
 
     const handleOnChangeTitle = (event) => {

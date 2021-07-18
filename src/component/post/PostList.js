@@ -14,17 +14,42 @@ const PostList = ({userId}) => {
         })
     }, [userId]);
 
-    const handleCallbackSubmitted = (data) => {
+    const handleCallbackOnCreate = (res) => {
+        const {data} = res;
         setPosts([data, ...posts]);
+    }
+
+    const handleCallbackOnUpdate = (res) => {
+        const {data} = res;
+        const replaced = posts.map(item => {
+            if (item.id === data.id) {
+                return data;
+            }
+            return item
+        });
+        setPosts(replaced);
+    }
+
+    const handleCallbackOnDelete = (postId) => {
+        const filtered = posts.filter(({id}) => id !== postId);
+        setPosts(filtered);
     }
 
     return (
         <div className={styles.container}>
             <h3>Posts</h3>
             <div>
-                <PostForm userId={userId} callback={handleCallbackSubmitted} type="post"/>
+                <PostForm
+                    userId={userId}
+                    callbackOnCreate={handleCallbackOnCreate}
+                />
                 {posts.map(post => (
-                    <PostCard key={post.id} {...post}/>
+                    <PostCard
+                        key={post.id}
+                        {...post}
+                        callbackOnUpdate={handleCallbackOnUpdate}
+                        callbackOnDelete={handleCallbackOnDelete}
+                    />
                 ))}
             </div>
         </div>

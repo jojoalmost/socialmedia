@@ -3,7 +3,7 @@ import styles from './PostCard.module.css'
 import {useHistory} from "react-router";
 import PostForm from "./PostForm";
 
-const PostCard = ({id: postId, body, title, userId}) => {
+const PostCard = ({id: postId, body, title, userId, ...rest}) => {
     const history = useHistory();
 
     const handleClickCard = () => {
@@ -19,6 +19,7 @@ const PostCard = ({id: postId, body, title, userId}) => {
                     form={form}
                     userId={userId}
                     postId={postId}
+                    {...rest}
                 >
                     <div role="button" onClick={handleClickCard}>
                         <h4>{title}</h4>
