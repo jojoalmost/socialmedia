@@ -1,6 +1,8 @@
 import {render, screen, waitFor} from '@testing-library/react';
 import api from "../../../utils/api";
 import UserDetail from "./UserDetail";
+import {useParams} from "react-router";
+import {BrowserRouter as Router,} from "react-router-dom";
 
 const mockData = {
     "id": 1,
@@ -27,9 +29,15 @@ const mockData = {
 }
 
 jest.mock('../../../utils/api');
+jest.mock("react-router");
 test('render user detail', async () => {
+    useParams.mockReturnValue({userId: 1});
     api.get.mockResolvedValue({data: mockData});
-    render(<UserDetail/>);
+    render(
+        <Router>
+            <UserDetail/>
+        </Router>
+    );
     await waitFor(() => screen.getByText(/Leanne Graham/i))
     expect(screen.getByText(/Leanne Graham/i)).toBeInTheDocument();
 });
