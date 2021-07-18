@@ -1,6 +1,6 @@
 import React from 'react';
-import PostList from "../post/PostList";
-import AlbumList from "../album/AlbumList";
+import PostList from "../../post/PostList";
+import AlbumList from "../../album/AlbumList";
 import {
     Switch, Route,
 } from "react-router-dom";

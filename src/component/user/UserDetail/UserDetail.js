@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router";
-import api from "../../utils/api";
+import api from "../../../utils/api";
 
 import styles from "./UserDetail.module.css"
 
-import UserDetailTabs from "./UserDetailTabs";
+import UserDetailTabs from "../UserDetailTabs/UserDetailTabs";
 
-import {initStateUserDetails} from "../../utils/defaultState";
-import UserDetailTabContent from "./UserDetailTabContent";
-import UserInfo from "./UserInfo";
+import {initStateUserDetails} from "../../../utils/defaultState";
+import UserDetailTabContent from "../UserDetailTabs/UserDetailTabContent";
+import UserInfo from "../UserInfo";
 
 const UserDetail = () => {
     const [user, setUser] = useState(initStateUserDetails);

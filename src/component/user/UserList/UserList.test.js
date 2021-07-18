@@ -1,6 +1,7 @@
 import {render, screen, waitFor} from '@testing-library/react';
 import api from "../../../utils/api";
 import UserList from "./UserList";
+import {useParams} from "react-router";
 
 const mockData = [
     {
@@ -73,8 +74,10 @@ const mockData = [
         }
     }
 ];
+jest.mock('react-router');
 jest.mock('../../../utils/api');
-test('renders learn react link', async () => {
+test('render user list', async () => {
+    useParams.mockReturnValue({userId : 1});
     api.get.mockResolvedValue({data: mockData});
     render(<UserList/>);
     await waitFor(() => screen.getByText(/Leanne Graham/i))
