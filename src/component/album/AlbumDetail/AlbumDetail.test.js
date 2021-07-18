@@ -3,7 +3,6 @@ import api from "../../../utils/api";
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import AlbumDetail from "./AlbumDetail";
-import {getModalData} from "../../../stores/photos/selectors";
 
 const mockData = [
     {
