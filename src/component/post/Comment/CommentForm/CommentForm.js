@@ -64,24 +64,26 @@ const CommentForm = ({
         }
     }
 
-    const handleClickEdit = async (e) => {
+    const handleClickSave = async (e) => {
         try {
-            if (isEdit) {
-                if (!window.confirm("Do you really want update this comment?")) return false;
-                const request = await onSubmittedForm('edit');
-                const {data: {userId, body, id}} = request;
-                const getUser = await api.get(`users/${userId}`);
-                const {data: {email, name}} = getUser;
-                const formatted = {
-                    body, id, name, email, postId,
-                }
-                callbackOnUpdate(formatted);
-                setComment('')
+            if (!window.confirm("Do you really want update this comment?")) return false;
+            const request = await onSubmittedForm('edit');
+            const {data: {userId, body, id}} = request;
+            const getUser = await api.get(`users/${userId}`);
+            const {data: {email, name}} = getUser;
+            const formatted = {
+                body, id, name, email, postId,
             }
+            callbackOnUpdate(formatted);
+            setComment('')
             setIsEdit(!isEdit);
         } catch (e) {
             console.error(e)
         }
+    }
+
+    const handleClickEdit = () => {
+        setIsEdit(!isEdit)
     }
 
     const handleClickDelete = async (e) => {
@@ -126,9 +128,16 @@ const CommentForm = ({
                 <button className={styles.buttonSubmit} type="button" onClick={handleClickPost}>Send</button>
             ) : (
                 <div>
-                    <button className={styles.buttonSubmit} type="button" onClick={handleClickEdit}>
-                        {isEdit ? 'Update' : 'Edit'}
-                    </button>
+                    {isEdit ? (
+                        <button className={styles.buttonSubmit} type="button" onClick={handleClickSave}>
+                            Update
+                        </button>
+                    ) : (
+                        <button className={styles.buttonSubmit} type="button" onClick={handleClickEdit}>
+                            Edit
+                        </button>
+                    )}
+
                     <button className={styles.buttonDelete} type="button" onClick={handleClickDelete}>Delete
                     </button>
                 </div>
