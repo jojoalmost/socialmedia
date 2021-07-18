@@ -1,15 +1,18 @@
 .card {
-    border: 1px solid #000000;
+    border: 1px solid #888888;
+    border-radius: 8px;
     padding: 8px;
+    margin-bottom: 10px;
     display: flex;
-    justify-content: center;
     align-items: center;
     word-break: break-word;
     text-align: center;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 
 .card:hover {
     cursor: pointer;
+    background: #888888;
+    color: #FFFFFF;
 }

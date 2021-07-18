@@ -1,5 +1,8 @@
 .container {
     margin: 8px;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
 }
 
 .title {
@@ -9,4 +12,6 @@
     height: 150px;
     margin: 0;
     text-align: center;
+    display: flex;
+    align-items: center;
 }

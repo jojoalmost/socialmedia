@@ -19,10 +19,9 @@ const CommentList = ({postId, userId}) => {
     }
 
     const handleCallbackOnUpdate = (res) => {
-        const {data} = res;
         const replaced = comments.map(item => {
-            if (item.id === data.id) {
-                return data;
+            if (item.id === res.id) {
+                return res;
             }
             return item
         });

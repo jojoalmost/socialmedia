@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './PhotoList.module.css'
+import styles from './PhotoCard.module.css'
 
 const PhotoCard = ({id, albumId, title, url, thumbnailUrl}) => {
     return (

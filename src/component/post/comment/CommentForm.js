@@ -69,7 +69,13 @@ const CommentForm = ({
             if (isEdit) {
                 if (!window.confirm("Do you really want update this comment?")) return false;
                 const request = await onSubmittedForm('edit');
-                callbackOnUpdate(request);
+                const {data: {userId, body, id}} = request;
+                const getUser = await api.get(`users/${userId}`);
+                const {data: {email, name}} = getUser;
+                const formatted = {
+                    body, id, name, email, postId,
+                }
+                callbackOnUpdate(formatted);
                 setComment('')
             }
             setIsEdit(!isEdit);
