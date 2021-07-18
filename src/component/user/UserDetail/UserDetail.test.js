@@ -37,9 +37,7 @@ test('render user detail', async () => {
     useParams.mockReturnValue({userId: 1});
     api.get.mockResolvedValue({data: mockData});
     render(
-        <Router>
-            <UserDetail/>
-        </Router>
+        <UserDetail/>
     );
     await waitFor(() => screen.getByText(/Leanne Graham/i))
     expect(screen.getByText(/Leanne Graham/i)).toBeInTheDocument();
