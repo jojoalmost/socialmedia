@@ -1,7 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import UserAddress from "./UserAddress";
 
-test('render user card', () => {
+test('render user address', () => {
     render(
         <UserAddress
             city='Gwenborough'
