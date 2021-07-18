@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import api from "../../utils/api";
+import api from "../../../utils/api";
 import {useParams} from "react-router";
-import PhotoCard from "./photo/PhotoCard";
+import PhotoCard from "../photo/PhotoCard";
 import styles from "./AlbumDetail.module.css"
-import ModalPhoto from "../ModalPhoto";
+import ModalPhoto from "../../ModalPhoto";
 import {useDispatch} from "react-redux";
-import {setModalPhoto} from "../../stores/photos/actions";
+import {setModalPhoto} from "../../../stores/photos/actions";
 
 const AlbumDetail = () => {
     const [photos, setPhotos] = useState([]);

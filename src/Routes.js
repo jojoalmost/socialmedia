@@ -10,8 +10,8 @@ import NoMatch from "./pages/NoMatch";
 import UserDetail from "./pages/UserDetail";
 import PostDetail from "./pages/PostDetail";
 import AlbumDetail from "./pages/AlbumDetail";
-import Header from "./component/layout/Header";
-import MainContent from "./component/layout/MainContent";
+import Header from "./component/layout/Header/Header";
+import MainContent from "./component/layout/MainContent/MainContent";
 
 const Routes = () => {
     return (

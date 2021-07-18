@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import api from "../../utils/api";
-import AlbumCard from "./AlbumCard";
+import api from "../../../utils/api";
+import AlbumCard from "../AlbumCard/AlbumCard";
 import styles from "./AlbumList.module.css"
 
 const AlbumList = ({userId}) => {
