@@ -60,19 +60,21 @@ const PostForm = ({
         }
     }
 
-    const handleClickEdit = async (e) => {
+    const handleClickSave = async (e) => {
         try {
-            if (isEdit) {
-                if (!window.confirm("Do you really want update this post?")) return false;
-                const request = await onSubmittedForm('edit');
-                callbackOnUpdate(request);
-                setTitle('');
-                setBody('');
-            }
+            if (!window.confirm("Do you really want update this post?")) return false;
+            const request = await onSubmittedForm('edit');
+            callbackOnUpdate(request);
+            setTitle('');
+            setBody('');
             setIsEdit(!isEdit);
         } catch (e) {
             console.error(e)
         }
+    }
+
+    const handleClickEdit = (e) => {
+        setIsEdit(!isEdit);
     }
 
     const handleClickDelete = async (e) => {
@@ -118,12 +120,19 @@ const PostForm = ({
                 <button className={styles.buttonSubmit} type="button" onClick={handleClickPost}>Post</button>
             ) : (
                 <div>
-                    <button className={styles.buttonSubmit} type="button" onClick={handleClickEdit}>
-                        {isEdit ? 'Save' : 'Edit'}
-                    </button>
-                    {isEdit && (
-                        <button className={styles.buttonSubmit} type="button" onClick={() => setIsEdit(!isEdit)}>
-                            Cancel
+
+                    {isEdit ? (
+                        <>
+                            <button className={styles.buttonSubmit} type="button" onClick={handleClickSave}>
+                                Save
+                            </button>
+                            <button className={styles.buttonSubmit} type="button" onClick={() => setIsEdit(!isEdit)}>
+                                Cancel
+                            </button>
+                        </>
+                    ) : (
+                        <button className={styles.buttonSubmit} type="button" onClick={handleClickEdit}>
+                            Edit
                         </button>
                     )}
                     <button className={styles.buttonDelete} type="button" onClick={handleClickDelete}>Delete
