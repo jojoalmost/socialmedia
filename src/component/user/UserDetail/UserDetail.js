@@ -8,7 +8,7 @@ import UserDetailTabs from "../UserDetailTabs/UserDetailTabs";
 
 import {initStateUserDetails} from "../../../utils/defaultState";
 import UserDetailTabContent from "../UserDetailTabs/UserDetailTabContent";
-import UserInfo from "../UserInfo";
+import UserInfo from "../UserInfo/UserInfo";
 
 const UserDetail = () => {
     const [user, setUser] = useState(initStateUserDetails);

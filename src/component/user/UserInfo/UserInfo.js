@@ -1,6 +1,6 @@
 import React from 'react';
-import UserAddress from "./UserAddress";
-import UserCompany from "./UserCompany";
+import UserAddress from "../UserAddress/UserAddress";
+import UserCompany from "../UserCompany";
 import styles from "./UserInfo.module.css"
 
 const UserInfo = ({email, phone, website, address, company}) => {
