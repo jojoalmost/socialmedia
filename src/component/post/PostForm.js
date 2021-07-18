@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import api from "../../utils/api";
 import styles from "./PostForm.module.css";
-import stylesButton from "./PostForm.module.css";
+import Form from "./Form";
 
 const PostForm = ({
                       postId,
@@ -85,16 +85,18 @@ const PostForm = ({
         }
     }
 
-    const handleOnChangeTitle = (event) => {
-        event.preventDefault();
+    const handleOnChange = (event, inputType) => {
         const {target: {value}} = event;
-        setTitle(value);
-    }
-
-    const handleOnChangeBody = (event) => {
-        event.preventDefault();
-        const {target: {value}} = event;
-        setBody(value);
+        switch (inputType) {
+            case 'title':
+                setTitle(value);
+                break;
+            case 'body':
+                setBody(value);
+                break;
+            default:
+                break;
+        }
     }
 
     return (
@@ -102,42 +104,24 @@ const PostForm = ({
             {children ? (
                 <>
                     {isEdit ? (
-                        <>
-                            <div className={styles.formGroup}>
-                                <input type="text" placeholder="Write a post title here..."
-                                       onChange={handleOnChangeTitle}
-                                       value={title}/>
-                            </div>
-                            <div className={styles.formGroup}>
-                                <textarea placeholder="Write a post here..." onChange={handleOnChangeBody}
-                                          value={body}/>
-                            </div>
-                        </>
+                        <Form body={body} title={title} onChangeInput={handleOnChange}/>
                     ) : (
                         <>{children}</>
                     )}
                 </>
 
             ) : (
-                <>
-                    <div className={styles.formGroup}>
-                        <input type="text" placeholder="Write a post title here..." onChange={handleOnChangeTitle}
-                               value={title}/>
-                    </div>
-                    <div className={styles.formGroup}>
-                        <textarea placeholder="Write a post here..." onChange={handleOnChangeBody} value={body}/>
-                    </div>
-                </>
+                <Form body={body} title={title} onChangeInput={handleOnChange}/>
             )}
 
             {!children ? (
                 <button className={styles.buttonSubmit} type="button" onClick={handleClickPost}>Post</button>
             ) : (
                 <div>
-                    <button className={stylesButton.buttonSubmit} type="button" onClick={handleClickEdit}>
+                    <button className={styles.buttonSubmit} type="button" onClick={handleClickEdit}>
                         {isEdit ? 'Save' : 'Edit'}
                     </button>
-                    <button className={stylesButton.buttonDelete} type="button" onClick={handleClickDelete}>Delete
+                    <button className={styles.buttonDelete} type="button" onClick={handleClickDelete}>Delete
                     </button>
                 </div>
             )}
