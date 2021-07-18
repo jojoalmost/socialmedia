@@ -1,5 +1,6 @@
 .container .formGroup {
     display: flex;
+    margin-bottom: 8px;
 }
 
 .container input, textarea {

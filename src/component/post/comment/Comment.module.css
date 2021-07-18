@@ -1,3 +1,22 @@
-.container {
+.card {
+    border: 1px solid #EEEEEE;
+    border-radius: 4px;
+    padding: 12px;
+    margin: 8px 0;
+}
 
+.card h5, h4 {
+    margin: 0;
+}
+
+.nameContainer {
+    display: block;
+}
+
+.name {
+    margin-bottom: 4px;
+}
+
+.email {
+    font-weight: normal;
 }

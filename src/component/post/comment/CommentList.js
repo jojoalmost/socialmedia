@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import api from "../../../utils/api";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
+import styles from "./CommentList.module.css"
 
-const CommentList = ({postId}) => {
+const CommentList = ({postId, userId}) => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -13,14 +14,43 @@ const CommentList = ({postId}) => {
         })
     }, [postId]);
 
-    const handleCallbackSubmitted = (data) => {
-        setComments([...comments, data]);
+    const handleCallbackOnCreate = (res) => {
+        setComments([res, ...comments]);
     }
 
+    const handleCallbackOnUpdate = (res) => {
+        const {data} = res;
+        const replaced = comments.map(item => {
+            if (item.id === data.id) {
+                return data;
+            }
+            return item
+        });
+        setComments(replaced);
+    }
+
+    const handleCallbackOnDelete = (postId) => {
+        const filtered = comments.filter(({id}) => id !== postId);
+        setComments(filtered);
+    }
+
+
     return (
-        <div>
-            <CommentForm callback={handleCallbackSubmitted}/>
-            {comments.map((comment) => <Comment {...comment}/>)}
+        <div className={styles.container}>
+            <h4>Comments ({comments.length})</h4>
+            <CommentForm
+                callbackOnCreate={handleCallbackOnCreate}
+                userId={userId}
+                postId={postId}
+            />
+            {comments.map((comment) => <Comment
+                key={comment.id}
+                {...comment}
+                callbackOnUpdate={handleCallbackOnUpdate}
+                callbackOnDelete={handleCallbackOnDelete}
+                userId={userId}
+                postId={postId}
+            />)}
         </div>
     )
 }

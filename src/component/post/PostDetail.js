@@ -23,7 +23,7 @@ const PostDetail = () => {
                 <p>{body}</p>
             </div>
 
-            <CommentList postId={postId}/>
+            <CommentList postId={postId} userId={post.userId} />
         </div>
     )
 }

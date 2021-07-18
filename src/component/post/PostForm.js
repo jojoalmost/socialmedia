@@ -34,12 +34,12 @@ const PostForm = ({
             let request;
             switch (type) {
                 case 'edit':
-                    request = await api.put(`posts/${postId}`, payload)
+                    const updatePayload = {id: postId, ...payload};
+                    request = await api.put(`posts/${postId}`, updatePayload)
                     break;
                 case "create":
                 default:
-                    const updatePayload = {id: postId, ...payload};
-                    request = await api.post('posts', updatePayload);
+                    request = await api.post('posts', payload);
                     break
             }
             return request;
