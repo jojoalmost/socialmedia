@@ -56,7 +56,6 @@ const CommentForm = ({
             const formatted = {
                 body, id, name, email, postId,
             }
-            console.log(formatted);
             callbackOnCreate(formatted);
             setComment('');
         } catch (e) {

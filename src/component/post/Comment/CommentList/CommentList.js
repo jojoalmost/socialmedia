@@ -42,8 +42,8 @@ const CommentList = ({postId, userId}) => {
                 userId={userId}
                 postId={postId}
             />
-            {comments.map((comment) => <Comment
-                key={comment.id}
+            {comments.map((comment, index) => <Comment
+                key={`${comment.id}-${index}`}
                 {...comment}
                 callbackOnUpdate={handleCallbackOnUpdate}
                 callbackOnDelete={handleCallbackOnDelete}
